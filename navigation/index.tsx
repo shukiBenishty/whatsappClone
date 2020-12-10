@@ -2,11 +2,11 @@ import { MaterialCommunityIcons, Octicons } from '@expo/vector-icons';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-import { ColorSchemeName } from 'react-native';
-import { View } from '../components/Themed';
+import { ColorSchemeName, View } from 'react-native';
+
 import Colors from '../constants/Colors';
 
-import NotFoundScreen from '../screens/NotFoundScreen';
+
 import { RootStackParamList } from '../types';
 import MainTabNavigator from './MainTabNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
@@ -29,15 +29,16 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ 
-      headerStyle:{
-        backgroundColor: Colors.light.tint,
-        shadowOpacity: 0,
-        elevation: 0
-      },
-      headerTitleAlign: "left",
-      headerTintColor: Colors.light.background
-    }}>
+    <Stack.Navigator 
+      screenOptions={{ 
+        headerStyle:{
+          backgroundColor: Colors.light.tint,
+          shadowOpacity: 0,
+          elevation: 0
+        },
+        headerTitleAlign: "left",
+        headerTintColor: Colors.light.background
+      }}>
       <Stack.Screen name="Root" 
         component={MainTabNavigator} 
         options={{
@@ -57,7 +58,6 @@ function RootNavigator() {
           )
         }}
       />
-      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );
 }
