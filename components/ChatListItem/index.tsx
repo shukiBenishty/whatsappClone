@@ -4,7 +4,7 @@ import { Image } from "react-native";
 import { ChatRoom } from "../../types";
 import { View, Text } from "../Themed";
 import style from "./style"
-
+// import avatar from "../../assets/images/avatar.jpg"
 export type ChatListItemProps = {
     chatRoom: ChatRoom;
 }
@@ -13,13 +13,17 @@ export type ChatListItemProps = {
 const ChatListItem = (props: ChatListItemProps) => {
     return (
         <View style={style.continer} >
-            <Image style={style.avatar} source={{ uri: "https://abledbody.com/wp-content/uploads/2010/03/jake_sully_avatar_2009-normal.jpg" }} />
+            <Image
+                style={style.avatar}
+                source={props.chatRoom.imageUrl ?
+                    { uri: props.chatRoom.imageUrl } :
+                    require("../../assets/images/avatar.jpg")} />
             <View style={style.infoContiner}>
                 <View style={style.firstCol}>
-                    
-                        <Text style={style.name}>{props.chatRoom.name}</Text>
-                
-                        <Text style={style.date}>{props.chatRoom.messages?.[props.chatRoom.messages?.length - 1].sendAt}</Text>
+
+                    <Text style={style.name}>{props.chatRoom.name}</Text>
+
+                    <Text style={style.date}>{props.chatRoom.messages?.[props.chatRoom.messages?.length - 1].sendAt}</Text>
 
                 </View>
                 <View style={style.secondCol}>

@@ -38,4 +38,5 @@ export type ChatRoom = {
   name: String
   users: User[];
   messages?: Message[];
+  imageUrl?: String;
 }
