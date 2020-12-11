@@ -10,8 +10,8 @@ export type MainTabParamList = {
   Calls: undefined;
 };
 
-export type TabOneParamList = {
-  TabOneScreen: undefined;
+export type TabChatsParamList = {
+  ChatsScreen: undefined;
 };
 
 export type TabTwoParamList = {

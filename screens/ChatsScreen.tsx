@@ -14,7 +14,7 @@ export default function ChatsScreen() {
       style={styles.container}
       data={chatRooms}
       renderItem={({item}) => (
-        <ChatListItem chatRoom={item}/>
+        <ChatListItem onPress={()=>{}} chatRoom={item}/>
         )}/>
   );
 }
