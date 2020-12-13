@@ -7,14 +7,16 @@ import { ChatRoom } from '../types';
 
 
 import {chatRooms} from "../data"
+import { useNavigation } from '@react-navigation/native';
 
 export default function ChatsScreen() {
+  const navigation = useNavigation()
   return (
     <FlatList
       style={styles.container}
       data={chatRooms}
       renderItem={({item}) => (
-        <ChatListItem onPress={()=>{}} chatRoom={item}/>
+        <ChatListItem onPress={()=>{navigation.navigate("Chat", {...item})}} chatRoom={item}/>
         )}/>
   );
 }
